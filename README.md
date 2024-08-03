@@ -1,5 +1,6 @@
+v2.2.0开始可用
 # 基于JetpackCompose的省市县级联选择器
-
+（应该是全网唯一）
 ## 环境
 
 * **环境**:
@@ -16,7 +17,22 @@
 3.使用JetpackCompose等处理交互逻辑
 
 ## 使用方式
-
+### setting.gradle
+```Kotlin
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+        maven { url 'https://jitpack.io' }
+    }
+}
+```
+### build.gradle(:app)
+```Kotlin
+    implementation 'com.github.simonniex:SimonCityPicker:2.2.0'
+```
+### YourActivity
 ```Kotlin
 SimonCityPicker(
     context = context,

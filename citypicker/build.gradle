@@ -49,14 +49,15 @@ android {
         }
     }
 }
+
 afterEvaluate {
     publishing {
         publications {
             release(MavenPublication) {
+                from components.release
                 groupId = 'com.github.simonniex'
                 artifactId = 'SimonCityPicker'
                 version = '2.3.0'
-                from components.release
             }
         }
     }
