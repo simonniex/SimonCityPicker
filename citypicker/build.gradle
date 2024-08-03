@@ -2,7 +2,7 @@ plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
     id 'maven-publish'
-    id 'kotlinx-serialization' // 修改插件ID
+    id 'kotlinx-serialization'
 }
 
 group = 'com.github.simonniex'
@@ -27,13 +27,14 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
     }
 
     kotlinOptions {
-        jvmTarget = '1.8'
+        jvmTarget = '11'
     }
+
     buildFeatures {
         compose true
     }
@@ -48,43 +49,21 @@ android {
         }
     }
 }
-
-task sourceJar(type: Jar) {
-    from android.sourceSets.main.java.srcDirs
-    archiveClassifier.set("sources")
-}
-
-task javadoc(type: Javadoc) {
-    source = android.sourceSets.main.java.srcDirs
-    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
-}
-
-task javadocJar(type: Jar, dependsOn: javadoc) {
-    archiveClassifier.set('javadoc')
-    from javadoc.destinationDir
-}
-
-publishing {
-    publications {
-        release(MavenPublication) {
-            groupId = 'com.github.simonniex'
-            artifactId = 'SimonCityPicker'
-            version = '1.0.0'
-
-            afterEvaluate {
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                groupId = 'com.github.simonniex'
+                artifactId = 'SimonCityPicker'
+                version = '2.3.0'
                 from components.release
             }
-            // Include sources and Javadoc in the publication
-            artifact(sourceJar)
-            artifact(javadocJar)
         }
     }
-
-    repositories {
-        maven {
-            url = uri("https://jitpack.io")
-        }
-        mavenLocal()
+}
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(11)
     }
 }
 

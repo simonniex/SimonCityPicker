@@ -6,13 +6,14 @@ pluginManagement {
     }
 }
 
+// 依赖仓库配置
 dependencyResolutionManagement {
-    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
         google()
         mavenCentral()
         maven { url 'https://jitpack.io' }
     }
 }
+
 rootProject.name = "SimonCityPicker"
 include ':citypicker'
