@@ -49,20 +49,6 @@ android {
     }
 }
 
-task sourceJar(type: Jar) {
-    from android.sourceSets.main.java.srcDirs
-    archiveClassifier.set("sources")
-}
-
-task javadoc(type: Javadoc) {
-    source = android.sourceSets.main.java.srcDirs
-    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
-}
-
-task javadocJar(type: Jar, dependsOn: javadoc) {
-    archiveClassifier.set('javadoc')
-    from javadoc.destinationDir
-}
 
 publishing {
     publications {
@@ -74,9 +60,6 @@ publishing {
             afterEvaluate {
                 from components.release
             }
-            // Include sources and Javadoc in the publication
-            artifact(sourceJar)
-            artifact(javadocJar)
         }
     }
 
