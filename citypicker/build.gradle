@@ -27,8 +27,8 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
     }
 
     kotlinOptions {
@@ -85,6 +85,11 @@ publishing {
             url = uri("https://jitpack.io")
         }
         mavenLocal()
+    }
+}
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(11)
     }
 }
 
