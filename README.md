@@ -1,4 +1,8 @@
-v2.2.0开始可用
+注意：v2.2.0开始可用
+
+如果你自动导入依赖失败，请下载aar文件并手动导入
+- [SimonCityPicker-2.3.0.aar](https://github.com/simonniex/SimonCityPicker/SimonCity/SimonCityPicker-2.3.0.aar)
+
 # 基于JetpackCompose的省市县级联选择器
 （应该是全网唯一）
 ## 环境
