@@ -7,7 +7,7 @@
 - implementation "org.jetbrains.kotlinx:kotlinx-serialization-json:1.0.0"
 
 # 基于JetpackCompose的省市县级联选择器
-（应该是全网唯一）
+
 ## 环境
 
 * **环境**:
